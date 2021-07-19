@@ -13,7 +13,7 @@ const RecomendedProduct = (props) => {
         </div>
         {/* End .heading-left */}
         <div className="heading-right">
-          <a href="#" className="title-link">
+          <a href="javascript:void(0)" className="title-link">
             Xem tất cả đề xuất <i className="icon-long-arrow-right" />
           </a>
         </div>
@@ -40,7 +40,7 @@ const RecomendedProduct = (props) => {
                         </a>
                         <div className="product-action-vertical">
                           <a
-                            href="#"
+                            href="javascript:void(0)"
                             className="btn-product-icon btn-wishlist"
                             title="Add to wishlist"
                           />
@@ -48,7 +48,7 @@ const RecomendedProduct = (props) => {
                         {/* End .product-action */}
                         <div className="product-action">
                           <a
-                            href="#"
+                            href="javascript:void(0)"
                             className="btn-product btn-cart"
                             title="Add to cart"
                           >
@@ -67,7 +67,7 @@ const RecomendedProduct = (props) => {
                       {/* End .product-media */}
                       <div className="product-body">
                         <div className="product-cat">
-                          <a href="#">{item.brand_name}</a>
+                          <a href="javascript:void(0)">{item.brand_name}</a>
                         </div>
                         {/* End .product-cat */}
                         <h3 className="product-title">
@@ -94,22 +94,22 @@ const RecomendedProduct = (props) => {
                         {/* End .rating-container */}
                         <div className="product-nav product-nav-dots">
                           <a
-                            href="#"
+                            href="javascript:void(0)"
                             className="active"
                             style={{ background: "#666666" }}
                           >
                             <span className="sr-only">Color name</span>
                           </a>
-                          <a href="#" style={{ background: "#ff887f" }}>
+                          <a href="javascript:void(0)" style={{ background: "#ff887f" }}>
                             <span className="sr-only">Color name</span>
                           </a>
-                          <a href="#" style={{ background: "#6699cc" }}>
+                          <a href="javascript:void(0)" style={{ background: "#6699cc" }}>
                             <span className="sr-only">Color name</span>
                           </a>
-                          <a href="#" style={{ background: "#f3dbc1" }}>
+                          <a href="javascript:void(0)" style={{ background: "#f3dbc1" }}>
                             <span className="sr-only">Color name</span>
                           </a>
-                          <a href="#" style={{ background: "#eaeaec" }}>
+                          <a href="javascript:void(0)" style={{ background: "#eaeaec" }}>
                             <span className="sr-only">Color name</span>
                           </a>
                         </div>
