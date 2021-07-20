@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
+import axios from "axios";
+
+import { cartStateGlobal } from "../globalState/cartState";
+import { BASE_URL, APP_USER_IDENTIFIER } from "../util/contants";
 
 import Header from "./Header";
 import Footer from "./Footer";
 import Wrapper from "./Wrapper";
 import AsideMenu from "./AsideMenu";
+
 const Layout = (props) => {
+  const [cartState, setCartState] = useRecoilState(cartStateGlobal);
+
+  const getCurrentCart = (userIdentifier) => {
+    axios
+      .get(`${BASE_URL}/cart?userIdentifier=${userIdentifier}`)
+      .then((response) => response.data.data.items)
+      .catch((err) => err);
+  };
+
+  useEffect(() => {
+    const userIdentifier = window.localStorage.getItem(APP_USER_IDENTIFIER);
+    console.log(userIdentifier);
+    getCurrentCart(userIdentifier);
+  }, []);
+
   return (
     <div>
       <div className="page-wrapper">
@@ -19,7 +40,10 @@ const Layout = (props) => {
       {/* Mobile Menu */}
       <div className="mobile-menu-overlay" />
       {/* End .mobil-menu-overlay */}
-      <div className="mobile-menu-container mobile-menu-light" style={{visibility:"visible"}}>
+      <div
+        className="mobile-menu-container mobile-menu-light"
+        style={{ visibility: "visible" }}
+      >
         <div className="mobile-menu-wrapper">
           <span className="mobile-menu-close">
             <i className="icon-close" />
@@ -402,7 +426,7 @@ const Layout = (props) => {
               {/* End .mobile-nav */}
             </div>
             {/* .End .tab-pane */}
-             <AsideMenu />
+            <AsideMenu />
             {/* .End .tab-pane */}
           </div>
           {/* End .tab-content */}

@@ -5,17 +5,17 @@ import axios from "axios";
 import { BASE_URL } from "../../util/contants";
 
 const AsideMenu = (props) => {
-  const [itemList, setItemList] = useState([]);
+  // const [itemList, setItemList] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get(`${BASE_URL}/categories`)
-      .then((response) => {
-        console.log(response.data.data);
-        setItemList(response.data.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(`${BASE_URL}/categories`)
+  //     .then((response) => {
+  //       console.log(response.data.data);
+  //       setItemList(response.data.data);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, []);
 
   return (
     <div
@@ -26,16 +26,6 @@ const AsideMenu = (props) => {
     >
       <nav className="mobile-cats-nav">
         <ul className="mobile-cats-menu">
-          {itemList.map((item, index) => {
-            return (
-              <li>
-                <a className="mobile-cats-lead" href="#">
-                  {item.item.title}
-                </a>
-              </li>
-            );
-          })}
-
           <li>
             <a className="mobile-cats-lead" href="#">
               Gift Ideas

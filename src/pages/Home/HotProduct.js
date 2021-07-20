@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import OwlCarousel from "react-owl-carousel2"; /* eslint-disable jsx-a11y/anchor-is-valid */
 import _ from "lodash";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 import { BASE_URL } from "../../util/contants";
 
@@ -19,8 +20,7 @@ const HotProduct = (props) => {
     rewind: false,
     navText: ["<", ">", "<", ">"],
     startPosition: 0,
-    lazyLoad: true,
-    loop: false,
+    lazyLoad: false,
     margin: 30,
     stagePadding: 1,
   };
@@ -127,13 +127,13 @@ const HotProduct = (props) => {
                             <span className="product-label label-circle label-new">
                               Hot
                             </span>
-                            <a href="product.html">
+                            <Link to={`/products/details/${item.id}`}>
                               <img
                                 src={item.thumbnail_url}
                                 alt="Product image"
                                 className="product-image"
                               />
-                            </a>
+                            </Link>
                             <div className="product-action-vertical">
                               <button
                                 className="btn-product-icon btn-wishlist"
