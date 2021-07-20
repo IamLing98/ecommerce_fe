@@ -1,6 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
+import axios from "axios";
+
+import { BASE_URL } from "../../util/contants";
 
 const Header = (props) => {
+  const [itemList, setItemList] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${BASE_URL}/categories`)
+      .then((response) => {
+        console.log(response.data.data);
+        setItemList(response.data.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <>
       <header className="header header-intro-clearance header-4">
@@ -280,30 +296,15 @@ const Header = (props) => {
                 <div className="dropdown-menu">
                   <nav className="side-nav">
                     <ul className="menu-vertical sf-arrows">
-                      <li className="item-lead">
-                        <a href="#">Ưu đãi</a>
-                      </li>
-                      <li className="item-lead">
-                        <a href="#">Quà tặng</a>
-                      </li>
-                      <li>
-                        <a href="#">Máy tính &amp; Laptop</a>
-                      </li>
-                      <li>
-                        <a href="#">Camera</a>
-                      </li>
-                      <li>
-                        <a href="#">Smart Phones</a>
-                      </li>
-                      <li>
-                        <a href="#">Tivi</a>
-                      </li>
-                      <li>
-                        <a href="#">Âm thanh</a>
-                      </li>
-                      <li>
-                        <a href="#">Phụ kiện thông minh </a>
-                      </li> 
+                      {itemList.map((item, index) => {
+                        return (
+                          <li>
+                            <a className="mobile-cats-lead" href={"/" + item.item.url}>
+                              {item.item.title}
+                            </a>
+                          </li>
+                        );
+                      })}
                     </ul>
                     {/* End .menu-vertical */}
                   </nav>
